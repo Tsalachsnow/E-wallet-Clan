@@ -30,6 +30,9 @@ public class Wallet extends BaseClass {
 
     private String details;
 
+    @Builder.Default
+    private Double transactionLimit = 200000.00;
+
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     @ToString.Exclude
