@@ -13,4 +13,5 @@ public class CustomerResponse {
     private String UserName;
     private String email;
     private String acc;
+    private Double balance;
 }

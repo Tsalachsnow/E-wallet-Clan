@@ -25,8 +25,6 @@ public class Customer extends BaseClass {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-
-
     @NotNull
     @Column(unique = true, nullable = false)
     private String email;
@@ -46,8 +44,8 @@ public class Customer extends BaseClass {
     @Builder.Default
     private LocalDateTime joined = LocalDateTime.now();
 
-//    @ToString.Exclude
-    @OneToOne //(mappedBy = "customer")
+
+    @OneToOne
     private Wallet wallets;
 
     public Double getLimit() {

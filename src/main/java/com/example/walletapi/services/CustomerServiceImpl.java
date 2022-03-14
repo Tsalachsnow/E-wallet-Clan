@@ -146,7 +146,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .orElseThrow(()-> new ResourceNotFound("Person Not Found"));
         System.out.println(person.toString());
         CustomerResponse personInfoResponse = CustomerResponse.builder().message("your wallet profile")
-                .fullName(person.getFullName()).acc(person.getWallets().getAcc())
+                .fullName(person.getFullName()).acc(person.getWallets().getAcc()).balance(person.getWallets().getBalance())
                 .email(person.getEmail()).build();
         modelMapper.map(person, personInfoResponse);
         return personInfoResponse;

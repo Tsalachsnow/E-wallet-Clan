@@ -36,9 +36,12 @@ public class WalletServiceImpl implements WalletService{
         try{
             Customer currentPerson= customerService.getUserFromSecurityContext();
             Wallet wallet = currentPerson.getWallets();
-            if (wallet.getBalance() >= dto.getAmount() && dto.getAmount() <= currentPerson.getLimit())
+            if (wallet.getBalance() >= dto.getAmount() && dto.getAmount() <= currentPerson.getLimit()){
                 wallet.setBalance(wallet.getBalance() - dto.getAmount());
             walletRepository.save(wallet);
+            }else{
+                throw new ResourceNotFound("transfer limit exceeded" + "limit: "+ currentPerson.getLimit());
+            }
             Customer customer = customerRepository.findCustomersByEmailAndWalletsAcc(dto.getEmail(), dto.getAcc()).orElseThrow(() -> new ProfileDataException("Account does not exist"));
             Double customerBalance = customer.getWallets().getBalance();
             customerBalance += dto.getAmount();
@@ -48,7 +51,7 @@ public class WalletServiceImpl implements WalletService{
             walletResponseDto = modelMapper.map(wallet, WalletResponseDto.class);
            return walletResponseDto.toModel(wallet);
         } catch (Exception e) {
-            throw new Exception("Insufficient funds!", e);
+            throw new Exception("transfer limit exceeded", e);
         }
     }
     //to topUp or withdraw wallet funds
