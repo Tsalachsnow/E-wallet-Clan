@@ -1,6 +1,6 @@
 # Clane_EWallet-Api_Task
 
-![ER Diagram](ER DIAGRAM-CLAN_EWALLET.png)
+![ER Diagram](ER-DIAGRAM-CLAN_EWALLET/ER DIAGRAM-CLAN_EWALLET.png)
 
 Implement e-wallet with REST API to create it, top it up, check its balance and withdraw funds using Spring (preferably Spring Boot). Funds on any wallet should
 not go below zero. The project should be built with Maven.
