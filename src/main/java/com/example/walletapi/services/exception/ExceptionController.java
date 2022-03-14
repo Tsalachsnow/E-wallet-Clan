@@ -37,7 +37,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
 
 
 	private ResponseEntity<ErrorMessage> getErrorMessageResponseEntity(Exception e, WebRequest request, HttpStatus status) {
-		final String timeNow = ZonedDateTime.now(ZoneId.of("Europe/Tallinn")).toString();
+		final String timeNow = ZonedDateTime.now(ZoneId.of("Africa/Lagos")).toString();
 		ErrorMessage errorMessage = new ErrorMessage(
 			e.getMessage(), e, status, timeNow, request.getDescription(false));
 		return new ResponseEntity<>(errorMessage, status);

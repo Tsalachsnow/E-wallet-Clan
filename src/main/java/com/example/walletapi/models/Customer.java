@@ -22,12 +22,10 @@ public class Customer extends BaseClass {
     private String userName;
 
     @NotNull
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
-    @NotNull
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+
 
     @NotNull
     @Column(unique = true, nullable = false)
@@ -37,23 +35,22 @@ public class Customer extends BaseClass {
     @Column(nullable = false)
     private String password;
 
-    @NotNull
-    @Column(name = "phone_number", nullable = false)
-    private String phoneNumber;
 
     @NotNull
     @Column(nullable = false)
     private String gender;
 
-    @NotNull
-    @Column(name = "date_of_birth", nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private KycLevel level;
 
     @Builder.Default
     private LocalDateTime joined = LocalDateTime.now();
 
-    @ToString.Exclude
-    @OneToMany(mappedBy = "customer")
-    private List<Wallet> wallets;
+//    @ToString.Exclude
+    @OneToOne //(mappedBy = "customer")
+    private Wallet wallets;
+
+    public Double getLimit() {
+        return level.getTransactionLimit();
+    }
 }

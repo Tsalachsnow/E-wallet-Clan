@@ -1,8 +1,6 @@
 package com.example.walletapi.dto;
 
 import com.example.walletapi.models.Wallet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WalletResponseDto {
 
@@ -15,18 +13,5 @@ public class WalletResponseDto {
         dto.setCreated(entity.getCreated());
         return dto;
     }
-
-    public List<WalletDto> toModel(List<Wallet> entities) {
-        if (entities == null) {
-            return null;
-        }
-
-        List<WalletDto> list = new ArrayList<WalletDto>(entities.size());
-        for (Wallet wallet : entities) {
-            list.add(toModel(wallet));
-        }
-        return list;
-    }
-
 
 }

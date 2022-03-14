@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JwtUtil {
-    public String SECRET_KEY = "secret";
+    public String SECRET_KEY = "snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5snowshaddye2r300s4w1c9c9d5";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

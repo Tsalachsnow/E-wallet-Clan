@@ -24,7 +24,6 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                //.protocols(new HashSet<>(Arrays.asList("HTTP","HTTPs")))
                 .apiInfo(metaData())
                 .securityContexts(List.of(securityContext()))
                 .securitySchemes(List.of(apiKey()))
@@ -58,19 +57,19 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo metaData() {
         return new ApiInfo(
-                "Java 009 - Fitnesso App",
-                "Configuration for Fitnesso Application",
+                "Clan-Task -- E-Wallet Api",
+                "Configuration for E-Wallet Api",
                 "1.1.0",
                 "Free to use",
-                new springfox.documentation.service.Contact("Fitnesso", " ", "https://amalahaprosper@gmail.com/"),
+                new springfox.documentation.service.Contact("TsalachSnow", " ", "https://amalahaprosper@gmail.com/"),
                 "Apache 2.0",
                 "https://localhost:9020/swagger-ui/",
                 Collections.emptyList()
         );
     }
-
+//
     private ApiKey apiKey() {
         return new ApiKey("Bearer", "Authorization", "header");
     }
-    
+
 }

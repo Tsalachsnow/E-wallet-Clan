@@ -26,4 +26,8 @@ public class ResourceNotFound extends RuntimeException {
 	public ResourceNotFound(long entityId, Class<? extends BaseClass> type) {
 		this(entityId, type.getSimpleName());
 	}
+
+	public ResourceNotFound(String message) {
+		super(message);
+	}
 }

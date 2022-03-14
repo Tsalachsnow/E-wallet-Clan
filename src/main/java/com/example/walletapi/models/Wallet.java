@@ -28,15 +28,8 @@ public class Wallet extends BaseClass {
     @Builder.Default
     private LocalDateTime created = LocalDateTime.now();
 
-    private String details;
-
-    @Builder.Default
-    private Double transactionLimit = 200000.00;
-
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    @ToString.Exclude
-    private Customer customer;
+    @Column(unique = true)
+    private String acc;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "wallet")

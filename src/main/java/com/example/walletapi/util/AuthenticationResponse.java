@@ -2,9 +2,13 @@ package com.example.walletapi.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
+//@AllArgsConstructor
 public class AuthenticationResponse {
-    private final String jwt;
+    private String jwt;
+    private String role;
 }

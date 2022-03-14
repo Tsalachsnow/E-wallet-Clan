@@ -27,5 +27,8 @@ public class TransactionNotAllowed extends RuntimeException {
 	public TransactionNotAllowed(long entityId, Class<? extends BaseClass> type) {
 		this(entityId, type.getSimpleName());
 	}
+	public TransactionNotAllowed(String msg) {
+		super(msg);
+	}
 
 }

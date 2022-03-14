@@ -7,12 +7,8 @@ import lombok.Data;
 @Data
 public class WalletDto extends BaseClassDto{
     private String name;
-
     private String currency;
-
     private Double balance;
-
-    private Customer customer;
-
+    private String acc;
     private LocalDateTime created;
 }
